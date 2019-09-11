@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Paginator from './components/Paginator.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    Paginator,
   },
 };
 </script>
