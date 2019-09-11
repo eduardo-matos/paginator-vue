@@ -1,16 +1,26 @@
 <template>
   <div class="paginator">
 
-    <button class="previous-page">Previous</button>
+    <div class="page-info">Página {{ currentPage }} de {{ totalPages }}</div>
+    <button
+      class="previous-page"
+      :disabled="currentPage === 1"
+      @click="goTo(currentPage - 1)"
+    >Previous</button>
     <button
       v-for="page in range(totalPages)"
       :class="`page page-${page}`"
       :key="page"
-      @click="() => goToPage(page)"
+      :disabled="page === currentPage"
+      @click="() => goTo(page)"
     >
       {{ page }}
     </button>
-    <button class="next-page" @click="goToPage(currentPage + 1)">Next</button>
+    <button
+      class="next-page"
+      @click="goTo(currentPage + 1)"
+      :disabled="currentPage === totalPages"
+    >Next</button>
   </div>
 </template>
 
@@ -24,6 +34,10 @@ export default {
   },
   methods: {
     range: max => Array.from(Array(max).keys()).map(v => v + 1),
+    goTo(page) {
+      this.goToPage(page);
+      this.$emit('pageChanged', page);
+    },
     ...mapActions(['goToPage']),
   }
 };
