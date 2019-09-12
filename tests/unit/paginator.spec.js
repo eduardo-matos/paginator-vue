@@ -18,7 +18,7 @@ const store = (customState = {}) => new Vuex.Store({
 });
 
 describe('Paginator.vue', () => {
-  it('show page count', () => {
+  it('shows page count', () => {
     const wrapper = shallowMount(Paginator, {
       store,
       localVue,
@@ -26,7 +26,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.find('.page-info').text()).toMatch('Página 3 de 5');
   });
 
-  it('shows buttons to all pages', () => {
+  it('shows buttons for all pages', () => {
     const wrapper = shallowMount(Paginator, {
       store,
       localVue,
@@ -40,7 +40,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.findAll('.page').at(4).text()).toBe('5');
   });
 
-  it('current page button is disabled', () => {
+  it('disables current page button', () => {
     const wrapper = shallowMount(Paginator, {
       store,
       localVue,
@@ -49,7 +49,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.find('.page-3').attributes('disabled')).toBe('disabled');
   });
 
-  it('when button is clicked, page changes', () => {
+  it('change page when button is clicked', () => {
     const wrapper = shallowMount(Paginator, {
       store,
       localVue,
@@ -71,7 +71,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.find('.previous-page').exists()).toBe(true);
   });
 
-  it('go to next page when click next page button', () => {
+  it('goes to next page when click next page button', () => {
     const wrapper = shallowMount(Paginator, {
       store,
       localVue,
@@ -82,7 +82,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.vm.currentPage).toBe(4);
   });
 
-  it('go to previous page when click previous page button', () => {
+  it('goes to previous page when click previous page button', () => {
     const wrapper = shallowMount(Paginator, {
       store: store({ currentPage: 2, totalPages: 3 }),
       localVue,
@@ -93,7 +93,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.vm.currentPage).toBe(1);
   });
 
-  it('previous page button is disabled when on first page', () => {
+  it('disables previous page button when on first page', () => {
     const wrapper = shallowMount(Paginator, {
       store: store({ currentPage: 1 }),
       localVue,
@@ -102,7 +102,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.find('.previous-page').attributes('disabled')).toBe('disabled');
   });
 
-  it('next page button is disabled when on last page', () => {
+  it('disables next page button when on last page', () => {
     const wrapper = shallowMount(Paginator, {
       store: store({ currentPage: 10, totalPages: 10 }),
       localVue,
@@ -111,7 +111,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.find('.next-page').attributes('disabled')).toBe('disabled');
   });
 
-  it('ignore previous and next button clicks if they are disabled', () => {
+  it('ignores previous and next button clicks if they are disabled', () => {
     const wrapper = shallowMount(Paginator, {
       store: store({ currentPage: 1, totalPages: 1 }),
       localVue,
@@ -130,7 +130,7 @@ describe('Paginator.vue', () => {
     expect(wrapper.vm.currentPage).toBe(1);
   });
 
-  it('paginator emits event when page changes', () => {
+  it('emits event when page changes', () => {
     const wrapper = shallowMount(Paginator, {
       store: store({ currentPage: 1, totalPages: 10 }),
       localVue,
