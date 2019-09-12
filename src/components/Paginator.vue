@@ -1,12 +1,13 @@
 <template>
   <div class="paginator">
-
     <div class="page-info">Página {{ currentPage }} de {{ totalPages }}</div>
+
     <button
       class="previous-page"
       :disabled="currentPage === 1"
       @click="goTo(currentPage - 1)"
     >Previous</button>
+
     <button
       v-for="page in range(totalPages)"
       :class="`page page-${page}`"
@@ -16,6 +17,7 @@
     >
       {{ page }}
     </button>
+
     <button
       class="next-page"
       @click="goTo(currentPage + 1)"
