@@ -1,34 +1,15 @@
-# paginator
+# Paginator
+
+Simple paginator built with Vue.
+
+This project is not meant to deliver production ready code for a paginator. It was created for a workshop to exercise writing automated tests for Vue components.
 
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Run tests
 ```
-npm run serve
+npm test
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
