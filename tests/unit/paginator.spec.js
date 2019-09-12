@@ -57,7 +57,7 @@ describe('Paginator.vue', () => {
 
     wrapper.find('.page-4').trigger('click');
 
-    expect(wrapper.$store.state).toBe(4);
+    expect(wrapper.vm.$store.state.currentPage).toBe(4);
     expect(wrapper.vm.currentPage).toBe(4);
   });
 
